@@ -1,0 +1,59 @@
+/* components/base/checkbox/checkbox.wxss */
+/* 复选框组件 */
+
+.l-checkbox-wrapper {
+  display: block;
+}
+
+.l-checkbox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.l-checkbox__box {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.l-checkbox--checked .l-checkbox__box {
+  background-color: var(--primary);
+  border-color: var(--primary);
+}
+
+.l-checkbox__check {
+  color: #FFFFFF;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.l-checkbox__label {
+  margin-left: 16rpx;
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+}
+
+.l-checkbox__description {
+  width: 100%;
+  margin-top: 8rpx;
+  margin-left: 56rpx;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* 禁用状态 */
+.l-checkbox-wrapper--disabled {
+  opacity: 0.5;
+}
+
+.l-checkbox-wrapper--disabled .l-checkbox__label {
+  color: var(--text-muted);
+}

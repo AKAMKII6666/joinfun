@@ -1,0 +1,5 @@
+<!-- components/publish-float-btn/publish-float-btn.wxml -->
+<!-- 发布悬浮按钮 -->
+<view class="publish-float-btn" bindtap="onTap">
+  <text class="btn-text">{{text}}</text>
+</view>

@@ -1,0 +1,81 @@
+/* components/base/switch/switch.wxss */
+/* 开关切换组件 */
+
+.l-switch-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.l-switch {
+  position: relative;
+  width: 96rpx;
+  height: 52rpx;
+  background-color: var(--border);
+  border-radius: 26rpx;
+  transition: background-color 0.3s ease;
+  flex-shrink: 0;
+}
+
+.l-switch--checked {
+  background-color: var(--primary);
+}
+
+.l-switch--disabled {
+  opacity: 0.5;
+}
+
+.l-switch__node {
+  position: absolute;
+  top: 4rpx;
+  left: 4rpx;
+  width: 44rpx;
+  height: 44rpx;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.l-switch--checked .l-switch__node {
+  transform: translateX(44rpx);
+}
+
+/* 隐藏原生switch */
+.l-switch__native {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* 标签文本 */
+.l-switch__label {
+  margin-left: 24rpx;
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  flex: 1;
+}
+
+.l-switch__label--disabled {
+  color: var(--text-muted);
+}
+
+/* 描述文本 */
+.l-switch__description {
+  width: 100%;
+  margin-top: 8rpx;
+  margin-left: 120rpx;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+/* 自定义颜色模式 */
+.l-switch--custom {
+  background-color: var(--switch-inactive-color, #EEEEEE);
+}
+
+.l-switch--custom.l-switch--checked {
+  background-color: var(--switch-active-color, var(--primary));
+}

@@ -1,0 +1,24 @@
+/* components/publish-float-btn/publish-float-btn.wxss */
+
+/* 发布悬浮按钮 */
+.publish-float-btn {
+  position: fixed;
+  right: var(--spacing-lg);
+  bottom: 520rpx;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8rpx 24rpx rgba(7, 193, 96, 0.4);
+  z-index: 100;
+}
+
+/* 按钮文字 */
+.btn-text {
+  color: var(--bg-color-white);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+}

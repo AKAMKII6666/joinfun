@@ -1,0 +1,14 @@
+<!-- components/base/badge/badge.wxml -->
+<view class="l-badge-wrapper">
+  <!-- 插槽：显示内容 -->
+  <slot />
+  
+  <!-- 徽章 -->
+  <view 
+    wx:if="{{showBadge && (count > 0 || dot)}}"
+    class="l-badge l-badge--{{size}} {{dot ? 'l-badge--dot' : ''}}"
+    style="{{customColor ? 'background-color: ' + customColor : ''}}"
+  >
+    <text wx:if="{{!dot}}" class="l-badge__text">{{displayCount}}</text>
+  </view>
+</view>

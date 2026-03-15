@@ -1,0 +1,51 @@
+<!-- components/business/activity-card/activity-card.wxml -->
+<view class="l-activity-card" bindtap="handleClick">
+  <!-- 封面图 -->
+  <view class="l-activity-card__cover">
+    <l-image 
+      src="{{activity.cover || defaultCover}}" 
+      mode="aspectFill"
+      class="l-activity-card__image"
+    />
+    <!-- 状态标签 -->
+    <view wx:if="{{activity.status}}" class="l-activity-card__status">
+      {{statusText}}
+    </view>
+  </view>
+  
+  <!-- 内容区域 -->
+  <view class="l-activity-card__content">
+    <!-- 标题 -->
+    <view class="l-activity-card__title">
+      {{activity.title}}
+    </view>
+    
+    <!-- 信息行 -->
+    <view class="l-activity-card__info">
+      <!-- 日期时间 -->
+      <view class="l-activity-card__info-item">
+        <text class="l-activity-card__icon">📅</text>
+        <text class="l-activity-card__text">{{activity.dateText}}</text>
+      </view>
+      
+      <!-- 地点 -->
+      <view wx:if="{{activity.location}}" class="l-activity-card__info-item">
+        <text class="l-activity-card__icon">📍</text>
+        <text class="l-activity-card__text">{{activity.locationName || activity.location}}</text>
+      </view>
+    </view>
+    
+    <!-- 人数 -->
+    <view class="l-activity-card__footer">
+      <view class="l-activity-card__people">
+        <text class="l-activity-card__icon">👥</text>
+        <text class="l-activity-card__text">{{activity.joinedCount || 0}}/{{activity.maxCount || 999}} 人</text>
+      </view>
+      
+      <!-- 发起人 -->
+      <view wx:if="{{activity.organizer}}" class="l-activity-card__organizer">
+        <text class="l-activity-card__organizer-text">发起人：{{activity.organizer.nickname}}</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,22 @@
+<!-- components/business/empty-state/empty-state.wxml -->
+<view class="l-empty-state">
+  <!-- 图标 -->
+  <view class="l-empty-state__icon">
+    <text>{{icon}}</text>
+  </view>
+  
+  <!-- 标题 -->
+  <view wx:if="{{title}}" class="l-empty-state__title">
+    {{title}}
+  </view>
+  
+  <!-- 副标题 -->
+  <view wx:if="{{subtitle}}" class="l-empty-state__subtitle">
+    {{subtitle}}
+  </view>
+  
+  <!-- 按钮 -->
+  <view wx:if="{{buttonText}}" class="l-empty-state__button" bindtap="handleButtonClick">
+    {{buttonText}}
+  </view>
+</view>

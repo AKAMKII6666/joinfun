@@ -1,0 +1,39 @@
+<!-- pages/my-activities/my-activities.wxml -->
+<view class="container">
+  <!-- 自定义 tabBar -->
+  <l-custom-tabbar />
+
+  <!-- 活动列表 -->
+  <view class="activity-list">
+    <block wx:if="{{activities.length > 0}}">
+      <block wx:for="{{activities}}" wx:key="id">
+        <l-activity-card
+          activity="{{item}}"
+          bind:click="onActivityClick"
+        />
+        <!-- 操作按钮（活动卡片下方） -->
+        <view wx:if="{{item.status === 'normal'}}" class="card-actions">
+          <l-button size="sm" variant="secondary" bind:click="onEditTap" data-id="{{item.id}}">编辑</l-button>
+          <l-button size="sm" variant="ghost" bind:click="onReuseTap" data-id="{{item.id}}">复用</l-button>
+          <l-button size="sm" variant="ghost" custom-class="delete-btn" bind:click="onDeleteTap" data-id="{{item.id}}">删除</l-button>
+        </view>
+      </block>
+    </block>
+
+    <!-- 空状态 -->
+    <block wx:else>
+      <l-empty-state
+        icon="📝"
+        title="暂无发起活动"
+        subtitle="快去发布第一个活动吧"
+        buttonText="发布新活动"
+        bind:click="onPublishClick"
+      />
+    </block>
+  </view>
+
+  <!-- 发布按钮 -->
+  <view class="publish-btn" bindtap="onPublishClick">
+    <text>+ 发布新活动</text>
+  </view>
+</view>

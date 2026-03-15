@@ -1,0 +1,29 @@
+/* components/business/publish-float-btn/publish-float-btn.wxss */
+/* 发布悬浮按钮 */
+
+.l-publish-float-btn {
+  position: fixed;
+  right: 32rpx;
+  bottom: 520rpx;
+  width: 96rpx;
+  height: 96rpx;
+  background-color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-lg);
+  z-index: 100;
+}
+
+.l-publish-float-btn__icon {
+  font-size: 56rpx;
+  color: #FFFFFF;
+  font-weight: 300;
+  line-height: 1;
+}
+
+.l-publish-float-btn:active {
+  opacity: 0.8;
+  transform: scale(0.95);
+}

@@ -1,0 +1,25 @@
+<!-- components/activity-list/activity-list.wxml -->
+<view class="activity-list-container">
+
+  <!-- 有数据 -->
+  <block wx:if="{{activities.length > 0}}">
+    <view class="activity-list">
+      <block wx:for="{{activities}}" wx:key="id">
+        <activity-card 
+          activity="{{item}}" 
+          cancelled="{{item.status === 'cancelled'}}"
+          bind:tap="onActivityTap"
+        />
+      </block>
+    </view>
+  </block>
+
+  <!-- 空状态 -->
+  <block wx:else>
+    <empty-state 
+      text="{{emptyText}}" 
+      hint="{{emptyHint}}" 
+    />
+  </block>
+
+</view>

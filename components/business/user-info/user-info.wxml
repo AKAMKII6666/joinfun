@@ -1,0 +1,25 @@
+<!-- components/business/user-info/user-info.wxml -->
+<view class="l-user-info {{clickable ? 'l-user-info--clickable' : ''}}" bindtap="handleClick">
+  <!-- 头像 -->
+  <l-avatar 
+    src="{{avatar}}" 
+    size="{{size}}"
+    shape="circle"
+    defaultText="{{nickname}}"
+  />
+  
+  <!-- 用户信息 -->
+  <view class="l-user-info__content">
+    <view class="l-user-info__nickname">
+      {{nickname}}
+    </view>
+    <view wx:if="{{description}}" class="l-user-info__description">
+      {{description}}
+    </view>
+  </view>
+  
+  <!-- 箭头（可选） -->
+  <view wx:if="{{showArrow}}" class="l-user-info__arrow">
+    ›
+  </view>
+</view>

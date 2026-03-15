@@ -1,0 +1,26 @@
+<!-- components/base/avatar/avatar.wxml -->
+<view 
+  class="l-avatar l-avatar--{{size}} l-avatar--{{shape}} {{isError ? 'l-avatar--error' : ''}}"
+  bindtap="handleClick"
+>
+  <!-- 图片头像 -->
+  <image 
+    wx:if="{{src}}"
+    class="l-avatar__img"
+    src="{{src}}"
+    mode="{{imageMode}}"
+    binderror="handleImageError"
+    bindload="handleImageLoad"
+  />
+  
+  <!-- 默认头像 / 加载中 -->
+  <view wx:else class="l-avatar__default">
+    <text wx:if="{{isLoading}}" class="l-avatar__loading">...</text>
+    <text wx:else class="l-avatar__text">{{defaultText}}</text>
+  </view>
+  
+  <!-- 角标 -->
+  <view wx:if="{{showBadge}}" class="l-avatar__badge">
+    <text>{{badgeText}}</text>
+  </view>
+</view>

@@ -1,0 +1,94 @@
+/* pages/profile/profile.wxss */
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+}
+
+.profile-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 64rpx 32rpx;
+  background-color: var(--bg-card);
+  border-bottom-left-radius: var(--radius-lg);
+  border-bottom-right-radius: var(--radius-lg);
+}
+
+.name-section {
+  display: flex;
+  align-items: center;
+  margin-top: 24rpx;
+}
+
+.nickname {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modify-icon {
+  margin-left: 12rpx;
+  font-size: 28rpx;
+}
+
+.modify-hint {
+  margin-top: 16rpx;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}
+
+.menu-list {
+  margin-top: 24rpx;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx;
+  border-bottom: 1rpx solid var(--border);
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-label {
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+}
+
+.menu-arrow {
+  font-size: 32rpx;
+  color: var(--text-muted);
+}
+
+.about-section {
+  margin-top: 24rpx;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-lg);
+}
+
+.about-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32rpx;
+  border-bottom: 1rpx solid var(--border);
+}
+
+.about-item:last-child {
+  border-bottom: none;
+}
+
+.about-label {
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+}
+
+.about-value {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+}

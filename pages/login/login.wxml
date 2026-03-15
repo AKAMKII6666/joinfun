@@ -1,0 +1,35 @@
+<!--pages/login/login.wxml-->
+<view class="login-container">
+  <!-- Logo 区域 -->
+  <view class="logo-area">
+    <view class="logo">
+      <text class="logo-text">快聚会</text>
+    </view>
+    <text class="subtitle">便捷的组局报名工具</text>
+  </view>
+
+  <!-- 登录按钮区域 -->
+  <view class="button-area">
+    <button 
+      class="wechat-btn {{loading ? 'loading' : ''}}" 
+      bindtap="onWechatLogin"
+      disabled="{{loading}}"
+    >
+      <image 
+        class="wechat-icon" 
+        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMiI+PHBhdGggZD0iTTEyIDJjNS41MzIgMCAxMCA0LjQ2OCAxMCAxMHMtNC40NjggMTAtMTAgMTAtMTAtNC40NjgtMTAtMTBTNi40NjggMiAxMiAyem0tMS44OSA2LjIyN2EuNzEuNzEgMCAwIDEgLjcxNS4yODUuNzEuNzEgMCAwIDEgLjcxNS0uMjg1YTgwLjMyNSA4MC4zMjUgMCAwIDEtMTQuNDMyIDBMNi4yMTUgNy42NDRhNS4wNTIgNS4wNTIgMCAwIDAtLjYxNC41ODkgMi45MzIgMi45MzIgMCAwIDAgMCA1LjM3N2gxLjY4N2MuMTU4IDAgLjMxLS4wMzYuNDU5LS4xMDdhNC40MzEgNC40MzEgMCAwIDAgOC4xMTUtMy40MzlsMS4xMDUuMTA3YTIuNzEyIDIuNzEyIDAgMCAwIDEuNTM3IDEuNDMybC0uNzEzIDEuMDRhNS4wNTIgNS4wNTIgMCAwIDAtNC4zNTggMS45MDR6Ii8+PC9zdmc+" 
+        mode="aspectFit"
+      />
+      <text wx:if="{{!loading}}">微信授权登录</text>
+      <text wx:else>登录中...</text>
+    </button>
+  </view>
+
+  <!-- 底部说明 -->
+  <view class="footer">
+    <text class="footer-text">登录即表示同意</text>
+    <text class="link">《用户协议》</text>
+    <text class="footer-text">和</text>
+    <text class="link">《隐私政策》</text>
+  </view>
+</view>

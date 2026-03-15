@@ -1,0 +1,148 @@
+<!-- pages/publish/publish.wxml -->
+<view class="container">
+  <!-- 表单 -->
+  <view class="form">
+    <!-- 活动标题 -->
+    <view class="form-item">
+      <view class="form-label required">活动标题</view>
+      <l-input
+        type="text"
+        placeholder="请输入活动标题（40字以内）"
+        maxlength="40"
+        value="{{title}}"
+        bind:change="onTitleChange"
+        show-count
+      />
+    </view>
+
+    <!-- 活动封面图 -->
+    <view class="form-item">
+      <view class="form-label">活动封面图</view>
+      <view class="image-uploader" bindtap="onChooseCover">
+        <block wx:if="{{coverImage}}">
+          <l-image src="{{coverImage}}" mode="aspectFill" class="cover-preview" />
+          <view class="delete-btn" catchtap="onDeleteCover">×</view>
+        </block>
+        <block wx:else>
+          <view class="add-icon">+</view>
+          <text class="add-text">添加封面</text>
+        </block>
+      </view>
+    </view>
+
+    <!-- 限制人数 -->
+    <view class="form-item">
+      <view class="form-label">限制人数</view>
+      <l-input
+        type="number"
+        placeholder="默认999人"
+        value="{{maxCount}}"
+        bind:change="onMaxCountChange"
+      />
+    </view>
+
+    <!-- 活动地点 -->
+    <view class="form-item">
+      <view class="form-label">活动地点</view>
+      <l-input
+        type="text"
+        placeholder="请输入地点名称"
+        value="{{location}}"
+        bind:change="onLocationChange"
+      />
+    </view>
+
+    <!-- 详细地址 -->
+    <view class="form-item">
+      <view class="form-label">详细地址</view>
+      <l-input
+        type="text"
+        placeholder="请输入详细地址"
+        value="{{address}}"
+        bind:change="onAddressChange"
+      />
+    </view>
+
+    <!-- 活动日期 -->
+    <view class="form-item">
+      <view class="form-label">活动日期</view>
+      <picker mode="date" bindchange="onDateChange">
+        <view class="picker-wrap {{selectedDate ? 'has-value' : ''}}">
+          {{selectedDate || '选择日期'}}
+        </view>
+      </picker>
+    </view>
+
+    <!-- 活动时间 -->
+    <view class="form-item">
+      <view class="form-label">活动时间</view>
+      <view class="time-range">
+        <picker mode="time" value="{{startTime}}" bindchange="onStartTimeChange">
+          <view class="picker-wrap {{startTime ? 'has-value' : ''}}">
+            {{startTime || '开始时间'}}
+          </view>
+        </picker>
+        <text class="time-separator">-</text>
+        <picker mode="time" value="{{endTime}}" bindchange="onEndTimeChange">
+          <view class="picker-wrap {{endTime ? 'has-value' : ''}}">
+            {{endTime || '结束时间'}}
+          </view>
+        </picker>
+      </view>
+    </view>
+
+    <!-- 联系电话 -->
+    <view class="form-item">
+      <view class="form-label">联系电话</view>
+      <l-input
+        type="number"
+        placeholder="请输入联系电话"
+        maxlength="11"
+        value="{{phone}}"
+        bind:change="onPhoneChange"
+      />
+    </view>
+
+    <!-- 详情图片 -->
+    <view class="form-item">
+      <view class="form-label">详情图片（最多12张）</view>
+      <view class="image-grid">
+        <view wx:for="{{detailImages}}" wx:key="*this" class="image-item">
+          <l-image src="{{item}}" mode="aspectFill" />
+          <view class="delete-btn" data-index="{{index}}" catchtap="onDeleteDetailImage">×</view>
+        </view>
+        <view wx:if="{{detailImages.length < 12}}" class="add-btn" bindtap="onChooseDetailImages">+</view>
+      </view>
+    </view>
+
+    <!-- 引路图片 -->
+    <view class="form-item">
+      <view class="form-label">引路图片（最多12张）</view>
+      <view class="image-grid">
+        <view wx:for="{{guideImages}}" wx:key="*this" class="image-item">
+          <l-image src="{{item}}" mode="aspectFill" />
+          <view class="delete-btn" data-index="{{index}}" catchtap="onDeleteGuideImage">×</view>
+        </view>
+        <view wx:if="{{guideImages.length < 12}}" class="add-btn" bindtap="onChooseGuideImages">+</view>
+      </view>
+    </view>
+
+    <!-- 活动说明 -->
+    <view class="form-item">
+      <view class="form-label">活动说明</view>
+      <l-textarea
+        placeholder="请输入活动说明（1000字以内）"
+        maxlength="1000"
+        show-count
+        value="{{description}}"
+        bind:change="onDescriptionChange"
+      />
+    </view>
+  </view>
+
+  <!-- 底部按钮 -->
+  <view class="bottom-bar">
+    <l-button variant="secondary" bind:click="onPreview">预览</l-button>
+    <l-button variant="primary" bind:click="onPublish">发布</l-button>
+  </view>
+</view>

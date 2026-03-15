@@ -1,0 +1,50 @@
+/* components/base/button/button.wxss */
+/* 基于 TDesign t-button 封装 */
+
+.l-button {
+  border-radius: var(--radius-md);
+  font-weight: 500;
+}
+
+/* 变体样式 */
+.variant-primary {
+  background-color: var(--primary) !important;
+  color: #FFFFFF !important;
+}
+
+.variant-secondary {
+  background-color: var(--bg-card) !important;
+  border: 2rpx solid var(--border) !important;
+  color: var(--text-primary) !important;
+}
+
+.variant-ghost {
+  background-color: transparent !important;
+  color: var(--primary) !important;
+}
+
+.variant-danger {
+  background-color: var(--error) !important;
+  color: #FFFFFF !important;
+}
+
+/* 尺寸样式 */
+.size-sm {
+  height: 56rpx;
+  font-size: var(--font-xs);
+}
+
+.size-md {
+  height: 72rpx;
+  font-size: var(--font-sm);
+}
+
+.size-lg {
+  height: 88rpx;
+  font-size: var(--font-md);
+}
+
+/* 块级按钮 */
+.l-button--block {
+  width: 100%;
+}

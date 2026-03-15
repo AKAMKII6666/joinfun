@@ -1,0 +1,4 @@
+<!-- components/business/publish-float-btn/publish-float-btn.wxml -->
+<view class="l-publish-float-btn" bindtap="handleClick">
+  <text class="l-publish-float-btn__icon">+</text>
+</view>

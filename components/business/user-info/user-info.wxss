@@ -1,0 +1,41 @@
+/* components/business/user-info/user-info.wxss */
+/* 用户信息组件 */
+
+.l-user-info {
+  display: flex;
+  align-items: center;
+}
+
+.l-user-info--clickable {
+  cursor: pointer;
+}
+
+.l-user-info__content {
+  flex: 1;
+  min-width: 0;
+  margin-left: 24rpx;
+}
+
+.l-user-info__nickname {
+  font-size: var(--font-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.l-user-info__description {
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+  margin-top: 4rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.l-user-info__arrow {
+  font-size: 32rpx;
+  color: var(--text-muted);
+  margin-left: 16rpx;
+}

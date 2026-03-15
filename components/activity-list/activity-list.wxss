@@ -1,0 +1,13 @@
+/* components/activity-list/activity-list.wxss */
+
+/* 活动列表容器 */
+.activity-list-container {
+  width: 100%;
+}
+
+/* 活动列表 */
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}

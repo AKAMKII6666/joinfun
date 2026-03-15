@@ -1,0 +1,40 @@
+/* components/business/empty-state/empty-state.wxss */
+/* 空状态组件 */
+
+.l-empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 96rpx 48rpx;
+}
+
+.l-empty-state__icon {
+  font-size: 128rpx;
+  line-height: 1;
+  margin-bottom: 32rpx;
+}
+
+.l-empty-state__title {
+  font-size: var(--font-md);
+  font-weight: 500;
+  color: var(--text-primary);
+  margin-bottom: 16rpx;
+  text-align: center;
+}
+
+.l-empty-state__subtitle {
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+
+.l-empty-state__button {
+  padding: 24rpx 64rpx;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  border-radius: var(--radius-lg);
+}

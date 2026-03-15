@@ -1,12 +1,18 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/activity-detail/activity-detail",
+    "pages/my-activities/my-activities",
+    "pages/publish/publish",
+    "pages/profile/profile",
+    "pages/login/login"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTitleText": "快聚会",
+    "navigationBarBackgroundColor": "#ffffff",
+    "backgroundColor": "#F5F5F5",
+    "backgroundTextStyle": "dark"
   },
   "style": "v2",
   "componentFramework": "glass-easel",

@@ -1,0 +1,22 @@
+<!-- components/base/checkbox/checkbox.wxml -->
+<view class="l-checkbox-wrapper {{disabled ? 'l-checkbox-wrapper--disabled' : ''}}">
+  <!-- 复选框主体 -->
+  <view 
+    class="l-checkbox {{checked ? 'l-checkbox--checked' : ''}}"
+    bindtap="handleClick"
+  >
+    <view class="l-checkbox__box">
+      <text wx:if="{{checked}}" class="l-checkbox__check">✓</text>
+    </view>
+    
+    <!-- 标签文本 -->
+    <view wx:if="{{label}}" class="l-checkbox__label">
+      {{label}}
+    </view>
+  </view>
+  
+  <!-- 描述文本 -->
+  <view wx:if="{{description}}" class="l-checkbox__description">
+    {{description}}
+  </view>
+</view>

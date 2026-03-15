@@ -1,0 +1,31 @@
+<!--components/base/input/input.wxml-->
+<view class="l-input-wrapper {{error ? 'l-input-wrapper--error' : ''}} {{disabled ? 'l-input-wrapper--disabled' : ''}}">
+  <t-input
+    class="l-input"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    placeholder-class="l-input__placeholder"
+    type="{{type}}"
+    maxlength="{{maxlength}}"
+    disabled="{{disabled}}"
+    readonly="{{readonly}}"
+    clearable="{{clearable}}"
+    borderless="{{true}}"
+    bind:change="handleChange"
+    bind:focus="handleFocus"
+    bind:blur="handleBlur"
+    bind:clear="handleClear"
+  >
+    <view wx:if="{{prefixIcon}}" slot="prefix-icon">
+      <slot name="prefix-icon"></slot>
+    </view>
+    <view wx:if="{{suffixIcon}}" slot="suffix-icon">
+      <slot name="suffix-icon"></slot>
+    </view>
+  </t-input>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error && errorMessage}}" class="l-input__error-message">
+    {{errorMessage}}
+  </view>
+</view>

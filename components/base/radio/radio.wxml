@@ -1,0 +1,22 @@
+<!-- components/base/radio/radio.wxml -->
+<view class="l-radio-wrapper {{disabled ? 'l-radio-wrapper--disabled' : ''}}">
+  <!-- 单选框主体 -->
+  <view 
+    class="l-radio {{checked ? 'l-radio--checked' : ''}}"
+    bindtap="handleClick"
+  >
+    <view class="l-radio__circle">
+      <view wx:if="{{checked}}" class="l-radio__dot"></view>
+    </view>
+    
+    <!-- 标签文本 -->
+    <view wx:if="{{label}}" class="l-radio__label">
+      {{label}}
+    </view>
+  </view>
+  
+  <!-- 描述文本 -->
+  <view wx:if="{{description}}" class="l-radio__description">
+    {{description}}
+  </view>
+</view>

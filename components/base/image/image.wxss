@@ -1,0 +1,57 @@
+/* components/base/image/image.wxss */
+/* 图片组件（带加载/错误状态） */
+
+.l-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.l-image__img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* 加载中 */
+.l-image--loading .l-image__img {
+  opacity: 0;
+}
+
+.l-image__placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-page);
+}
+
+.l-image__loading-icon {
+  color: var(--text-muted);
+  font-size: 32rpx;
+}
+
+/* 错误状态 */
+.l-image--error .l-image__img {
+  display: none;
+}
+
+.l-image__placeholder--error {
+  background-color: var(--bg-page);
+}
+
+.l-image__error-icon {
+  font-size: 64rpx;
+  opacity: 0.5;
+}
+
+.l-image__error-text {
+  margin-top: 12rpx;
+  font-size: var(--font-xs);
+  color: var(--text-muted);
+}

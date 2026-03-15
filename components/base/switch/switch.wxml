@@ -1,0 +1,36 @@
+<!-- components/base/switch/switch.wxml -->
+<view class="l-switch-wrapper">
+  <!-- 开关主体 -->
+  <view 
+    class="l-switch {{checked ? 'l-switch--checked' : ''}} {{disabled ? 'l-switch--disabled' : ''}}"
+    bindtap="handleToggle"
+  >
+    <view class="l-switch__node"></view>
+  </view>
+  
+  <!-- 隐藏的原生长按制 -->
+  <switch 
+    checked="{{checked}}"
+    disabled="{{disabled}}"
+    color="{{color}}"
+    bindchange="handleSwitchChange"
+    class="l-switch__native"
+  />
+  
+  <!-- 标签文本 -->
+  <view 
+    wx:if="{{label}}" 
+    class="l-switch__label {{disabled ? 'l-switch__label--disabled' : ''}}"
+    bindtap="handleToggle"
+  >
+    {{label}}
+  </view>
+  
+  <!-- 描述文本 -->
+  <view 
+    wx:if="{{description}}" 
+    class="l-switch__description"
+  >
+    {{description}}
+  </view>
+</view>

@@ -1,0 +1,24 @@
+<!-- components/base/tab-bar/tab-bar.wxml -->
+<view class="l-tab-bar">
+  <!-- Tab 列表 -->
+  <view class="l-tab-bar__list">
+    <view 
+      wx:for="{{tabs}}"
+      wx:key="key"
+      class="l-tab-bar__item {{index === current ? 'l-tab-bar__item--active' : ''}}"
+      bindtap="handleTabClick"
+      data-index="{{index}}"
+    >
+      <!-- 图标 -->
+      <view wx:if="{{item.icon}}" class="l-tab-bar__icon">
+        <text>{{item.iconText || ''}}</text>
+      </view>
+      
+      <!-- 文字 -->
+      <view class="l-tab-bar__text">{{item.title}}</view>
+      
+      <!-- 激活指示条 -->
+      <view wx:if="{{index === current}}" class="l-tab-bar__line"></view>
+    </view>
+  </view>
+</view>

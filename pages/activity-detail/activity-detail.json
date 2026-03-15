@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "l-image": "/components/base/image/image",
+    "l-user-info": "/components/business/user-info/user-info",
+    "l-button": "/components/base/button/button"
+  }
+}

@@ -1,0 +1,49 @@
+<!-- components/base/select/select.wxml -->
+<view class="l-select-wrapper {{error ? 'l-select-wrapper--error' : ''}} {{disabled ? 'l-select-wrapper--disabled' : ''}}">
+  <!-- 选择器显示 -->
+  <picker 
+    wx:if="{{!disabled}}"
+    mode="selector"
+    range="{{options}}"
+    range-key="label"
+    value="{{selectedIndex}}"
+    bindchange="handleChange"
+    disabled="{{disabled}}"
+  >
+    <view class="l-select">
+      <view class="l-select__content">
+        <!-- 前缀图标 -->
+        <view wx:if="{{$slots['prefix-icon']}}" class="l-select__prefix">
+          <slot name="prefix-icon" />
+        </view>
+        
+        <!-- 显示值 -->
+        <text class="l-select__value {{!selectedLabel ? 'l-select__value--placeholder' : ''}}">
+          {{selectedLabel || placeholder}}
+        </text>
+        
+        <!-- 后缀图标 -->
+        <view wx:if="{{$slots['suffix-icon']}}" class="l-select__suffix">
+          <slot name="suffix-icon" />
+        </view>
+      </view>
+      
+      <!-- 下拉箭头 -->
+      <view class="l-select__arrow">▼</view>
+    </view>
+  </picker>
+  
+  <!-- 禁用状态显示 -->
+  <view wx:else class="l-select">
+    <view class="l-select__content">
+      <text class="l-select__value {{!selectedLabel ? 'l-select__value--placeholder' : ''}}">
+        {{selectedLabel || placeholder}}
+      </text>
+    </view>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error && errorMessage}}" class="l-select__error-message">
+    {{errorMessage}}
+  </view>
+</view>

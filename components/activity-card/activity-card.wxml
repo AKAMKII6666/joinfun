@@ -1,0 +1,39 @@
+<!-- components/activity-card/activity-card.wxml -->
+<!-- 活动卡片容器 -->
+<view class="activity-card {{cancelled ? 'cancelled' : ''}}" bindtap="onTap">
+
+  <!-- 封面图容器 -->
+  <view class="card-cover-wrap">
+    <!-- 封面图 -->
+    <image class="card-cover" src="{{activity.cover}}" mode="aspectFill" />
+    <!-- 已取消水印 -->
+    <view wx:if="{{cancelled}}" class="cancelled-watermark">
+      <text>活动已取消</text>
+    </view>
+  </view>
+
+  <!-- 活动信息 -->
+  <view class="card-info">
+    <!-- 活动名称 -->
+    <view class="card-title">{{activity.name}}</view>
+
+    <!-- 日期时间 -->
+    <view class="card-row">
+      <text class="card-label">日期：</text>
+      <text class="card-value">{{activity.date}} {{activity.time}}</text>
+    </view>
+
+    <!-- 地点 -->
+    <view class="card-row">
+      <text class="card-label">地点：</text>
+      <text class="card-value">{{activity.location}}</text>
+    </view>
+
+    <!-- 报名人数 -->
+    <view class="card-row">
+      <text class="card-label">人数：</text>
+      <text class="card-value">{{activity.joinedCount || 0}}/{{activity.maxCount || 0}}</text>
+    </view>
+  </view>
+
+</view>

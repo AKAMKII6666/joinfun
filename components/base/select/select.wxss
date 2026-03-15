@@ -1,0 +1,140 @@
+/* components/base/select/select.wxss */
+/* 基于 TDesign t-select 封装的下拉选择组件 */
+
+.l-select-wrapper {
+  position: relative;
+}
+
+.l-select {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--bg-card);
+  border-radius: var(--radius-md);
+  border: 2rpx solid var(--border);
+  padding: 20rpx 24rpx;
+  min-height: 80rpx;
+  transition: border-color 0.2s ease;
+}
+
+.l-select-wrapper--error .l-select {
+  border-color: var(--error);
+}
+
+.l-select-wrapper--disabled .l-select {
+  background-color: var(--bg-page);
+  opacity: 0.6;
+}
+
+.l-select__content {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+}
+
+.l-select__prefix {
+  margin-right: 12rpx;
+  flex-shrink: 0;
+}
+
+.l-select__value {
+  flex: 1;
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.l-select__value--placeholder {
+  color: var(--text-muted);
+}
+
+.l-select__suffix {
+  margin-left: 12rpx;
+  flex-shrink: 0;
+}
+
+.l-select__arrow {
+  margin-left: 16rpx;
+  font-size: 20rpx;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.l-select__error-message {
+  padding-top: var(--space-xs);
+  padding-left: var(--space-sm);
+  font-size: var(--font-xs);
+  color: var(--error);
+  line-height: 1.4;
+}
+
+/* 弹窗样式 */
+.l-select__popup {
+  background-color: var(--bg-card);
+  max-height: 60vh;
+}
+
+.l-select__popup-title {
+  padding: 32rpx 32rpx 24rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  color: var(--text-primary);
+  text-align: center;
+  border-bottom: 1rpx solid var(--border);
+}
+
+.l-select__options {
+  max-height: 50vh;
+  overflow-y: auto;
+}
+
+.l-select__option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28rpx 32rpx;
+  font-size: var(--font-sm);
+  color: var(--text-primary);
+  border-bottom: 1rpx solid var(--border);
+}
+
+.l-select__option:last-child {
+  border-bottom: none;
+}
+
+.l-select__option--selected {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.l-select__option--disabled {
+  color: var(--text-muted);
+  opacity: 0.5;
+}
+
+.l-select__option-check {
+  color: var(--primary);
+  font-weight: bold;
+}
+
+.l-select__popup-footer {
+  padding: 24rpx 32rpx;
+  border-top: 1rpx solid var(--border);
+}
+
+.l-select__cancel {
+  text-align: center;
+  padding: 20rpx;
+  font-size: var(--font-sm);
+  color: var(--text-muted);
+  background-color: var(--bg-page);
+  border-radius: var(--radius-md);
+}
+
+/* 禁用状态 */
+.l-select-wrapper--disabled .l-select__value {
+  color: var(--text-muted);
+}

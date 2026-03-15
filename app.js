@@ -13,6 +13,20 @@ App({
       }
     })
   },
+
+  // 路由守卫：跳转登录页前记录来源页面
+  navigateToLogin() {
+    const pages = getCurrentPages();
+    if (pages.length > 0) {
+      const currentPage = pages[pages.length - 1];
+      const url = '/' + currentPage.route;
+      // 排除登录页本身，避免死循环
+      if (!url.includes('/pages/login/')) {
+        wx.setStorageSync('redirectUrl', url);
+      }
+    }
+  },
+
   globalData: {
     userInfo: null
   }

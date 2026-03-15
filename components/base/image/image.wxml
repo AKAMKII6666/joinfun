@@ -1,0 +1,29 @@
+<!-- components/base/image/image.wxml -->
+<view class="l-image {{error ? 'l-image--error' : ''}} {{showLoading ? 'l-image--loading' : ''}}">
+  <!-- 正常图片 -->
+  <image 
+    wx:if="{{src && !error}}"
+    class="l-image__img"
+    src="{{src}}"
+    mode="{{mode}}"
+    lazy-load="{{lazyLoad}}"
+    bindload="handleLoad"
+    binderror="handleError"
+    bindtap="handleClick"
+  />
+  
+  <!-- 加载中占位 -->
+  <view wx:if="{{showLoading}}" class="l-image__placeholder">
+    <slot name="loading">
+      <view class="l-image__loading-icon">...</view>
+    </slot>
+  </view>
+  
+  <!-- 错误占位 -->
+  <view wx:if="{{error}}" class="l-image__placeholder l-image__placeholder--error">
+    <slot name="error">
+      <view class="l-image__error-icon">🖼️</view>
+      <text wx:if="{{showErrorText}}" class="l-image__error-text">加载失败</text>
+    </slot>
+  </view>
+</view>

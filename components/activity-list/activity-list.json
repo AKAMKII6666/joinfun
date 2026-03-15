@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "empty-state": "/components/empty-state/empty-state",
+    "activity-card": "/components/activity-card/activity-card"
+  }
+}

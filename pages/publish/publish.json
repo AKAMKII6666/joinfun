@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "l-input": "/components/base/input/input",
+    "l-textarea": "/components/base/textarea/textarea",
+    "l-button": "/components/base/button/button",
+    "l-image": "/components/base/image/image"
+  }
+}

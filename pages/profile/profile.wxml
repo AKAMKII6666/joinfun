@@ -1,0 +1,54 @@
+<!-- pages/profile/profile.wxml -->
+<view class="container">
+  <!-- 自定义 tabBar -->
+  <l-custom-tabbar />
+
+  <!-- 用户信息区域 -->
+  <view class="profile-header">
+    <!-- 头像 -->
+    <l-avatar
+      src="{{userInfo.avatar}}"
+      size="lg"
+      bind:click="onChangeAvatar"
+    />
+    
+    <!-- 昵称 -->
+    <view class="name-section" bindtap="onChangeName">
+      <text class="nickname">{{userInfo.name}}</text>
+      <text class="modify-icon">✏️</text>
+    </view>
+
+    <!-- 修改次数提示 -->
+    <view class="modify-hint">
+      <text>今年还可修改 {{remainingModifyCount}} 次</text>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="onMenuClick" data-type="joined">
+      <text class="menu-label">我报名的活动</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onMenuClick" data-type="created">
+      <text class="menu-label">我发起的活动</text>
+      <text class="menu-arrow">›</text>
+    </view>
+    <view class="menu-item" bindtap="onMenuClick" data-type="history">
+      <text class="menu-label">浏览历史</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+
+  <!-- 关于 -->
+  <view class="about-section">
+    <view class="about-item">
+      <text class="about-label">版本号</text>
+      <text class="about-value">1.0.0</text>
+    </view>
+    <view class="about-item" bindtap="onContact">
+      <text class="about-label">联系客服</text>
+      <text class="menu-arrow">›</text>
+    </view>
+  </view>
+</view>

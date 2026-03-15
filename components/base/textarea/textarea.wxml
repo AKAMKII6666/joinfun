@@ -1,0 +1,29 @@
+<!--components/base/textarea/textarea.wxml-->
+<view class="l-textarea-wrapper {{error ? 'l-textarea-wrapper--error' : ''}} {{disabled ? 'l-textarea-wrapper--disabled' : ''}}">
+  <t-textarea
+    class="l-textarea"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    placeholder-class="l-textarea__placeholder"
+    maxlength="{{maxlength}}"
+    disabled="{{disabled}}"
+    readonly="{{readonly}}"
+    auto-size="{{autoSize}}"
+    bind:change="handleChange"
+    bind:focus="handleFocus"
+    bind:blur="handleBlur"
+  />
+  
+  <!-- 字数统计 -->
+  <view wx:if="{{showCount}}" class="l-textarea__counter">
+    <text class="{{currentLength > maxlength && maxlength > 0 ? 'l-textarea__counter--over' : ''}}">
+      {{currentLength}}
+    </text>
+    <text wx:if="{{maxlength > 0}}" class="l-textarea__counter-total">/{{maxlength}}</text>
+  </view>
+  
+  <!-- 错误提示 -->
+  <view wx:if="{{error && errorMessage}}" class="l-textarea__error-message">
+    {{errorMessage}}
+  </view>
+</view>

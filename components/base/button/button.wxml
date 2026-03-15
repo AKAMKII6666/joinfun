@@ -1,0 +1,13 @@
+<!--components/base/button/button.wxml-->
+<t-button
+  class="l-button {{variantClass}} {{sizeClass}} {{block ? 'l-button--block' : ''}}"
+  theme="{{theme}}"
+  size="{{size}}"
+  variant="{{variant}}"
+  disabled="{{disabled}}"
+  loading="{{loading}}"
+  block="{{block}}"
+  bind:click="handleClick"
+>
+  <slot></slot>
+</t-button>

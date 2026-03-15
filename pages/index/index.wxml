@@ -1,27 +1,76 @@
-<!--index.wxml-->
-<scroll-view class="scrollarea" scroll-y type="list">
-  <view class="container">
-    <view class="userinfo">
-      <block wx:if="{{canIUseNicknameComp && !hasUserInfo}}">
-        <button class="avatar-wrapper" open-type="chooseAvatar" bind:chooseavatar="onChooseAvatar">
-          <image class="avatar" src="{{userInfo.avatarUrl}}"></image>
-        </button>
-        <view class="nickname-wrapper">
-          <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
-        </view>
-      </block>
-      <block wx:elif="{{!hasUserInfo}}">
-        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-        <view wx:else> 请使用2.10.4及以上版本基础库 </view>
-      </block>
-      <block wx:else>
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-      </block>
+<!-- pages/index/index.wxml -->
+<view class="container">
+  <!-- 自定义 tabBar -->
+  <l-custom-tabbar />
+
+  <!-- 页面内 Tab 切换 -->
+  <view class="page-tabs">
+    <view 
+      class="page-tab {{currentTab === 0 ? 'active' : ''}}" 
+      bindtap="onTabChange" 
+      data-index="0"
+    >
+      已报名
     </view>
-    <view class="usermotto">
-      <text class="user-motto">{{motto}}</text>
+    <view 
+      class="page-tab {{currentTab === 1 ? 'active' : ''}}" 
+      bindtap="onTabChange" 
+      data-index="1"
+    >
+      最近浏览
     </view>
   </view>
-</scroll-view>
+
+  <!-- 已报名活动列表 -->
+  <view wx:if="{{currentTab === 0}}" class="activity-section">
+    <!-- 有数据 -->
+    <block wx:if="{{joinedActivities.length > 0}}">
+      <view class="activity-list">
+        <l-activity-card
+          wx:for="{{joinedActivities}}"
+          wx:key="id"
+          activity="{{item}}"
+          bind:click="onActivityClick"
+        />
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <block wx:else>
+      <l-empty-state
+        icon="📭"
+        title="未报名活动"
+        subtitle="快去发布一个活动吧"
+        buttonText="免费发布"
+        bind:click="onPublishClick"
+      />
+    </block>
+  </view>
+
+  <!-- 最近浏览列表 -->
+  <view wx:if="{{currentTab === 1}}" class="activity-section">
+    <!-- 有数据 -->
+    <block wx:if="{{recentActivities.length > 0}}">
+      <view class="activity-list">
+        <l-activity-card
+          wx:for="{{recentActivities}}"
+          wx:key="id"
+          activity="{{item}}"
+          bind:click="onActivityClick"
+        />
+      </view>
+    </block>
+
+    <!-- 空状态 -->
+    <block wx:else>
+      <l-empty-state
+        icon="👀"
+        title="未浏览活动"
+        subtitle="浏览的活动会在这里显示"
+      />
+    </block>
+  </view>
+
+  <!-- 发布悬浮按钮 -->
+  <l-publish-float-btn bind:click="onPublishClick" />
+</view>

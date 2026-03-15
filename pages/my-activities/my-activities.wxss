@@ -1,0 +1,39 @@
+/* pages/my-activities/my-activities.wxss */
+.container {
+  min-height: 100vh;
+  background-color: var(--bg-page);
+  padding: 24rpx;
+  padding-bottom: 320rpx;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24rpx;
+  padding-bottom: 120rpx;
+}
+
+.card-actions {
+  display: flex;
+  gap: 16rpx;
+  margin-top: 16rpx;
+  padding: 16rpx 0;
+  border-top: 1rpx solid var(--border);
+}
+
+.delete-btn {
+  color: var(--error) !important;
+}
+
+.publish-btn {
+  position: fixed;
+  bottom: 220rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 24rpx 64rpx;
+  background-color: var(--primary);
+  color: #FFFFFF;
+  font-size: var(--font-sm);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}

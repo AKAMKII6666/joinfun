@@ -1,0 +1,120 @@
+<!-- pages/activity-detail/activity-detail.wxml -->
+<view class="container">
+  <block wx:if="{{activity}}">
+    <!-- 顶部封面图 -->
+    <image 
+      src="{{activity.cover}}" 
+      mode="aspectFill"
+      class="cover-image"
+    />
+
+    <!-- 活动信息 -->
+    <view class="info-section">
+      <!-- 标题和分享 -->
+      <view class="title-row">
+        <text class="activity-title">{{activity.title}}</text>
+        <view class="share-btn" bindtap="onShareTap">
+          <text class="share-icon">📤</text>
+        </view>
+      </view>
+
+      <!-- 发起人 -->
+      <l-user-info
+        avatar="{{activity.organizer.avatar}}"
+        nickname="{{activity.organizer.name}}"
+        label="发起"
+        bind:click="onOrganizerClick"
+      />
+
+      <!-- 日期时间 -->
+      <view class="info-row">
+        <text class="info-icon">📅</text>
+        <text class="info-text">{{activity.dateText}}</text>
+      </view>
+
+      <!-- 地点 -->
+      <view class="info-row" bindtap="onNavigateTap">
+        <text class="info-icon">📍</text>
+        <text class="info-text">{{activity.location}}</text>
+        <text class="info-action">查看导航</text>
+      </view>
+
+      <!-- 报名人数 -->
+      <view class="info-row">
+        <text class="info-icon">👥</text>
+        <text class="info-text">已报名 {{activity.joinedCount}}/{{activity.maxCount}} 人</text>
+      </view>
+    </view>
+
+    <!-- 已报名人列表 -->
+    <view class="participants-section">
+      <view class="section-title">已报名 ({{activity.joinedCount}})</view>
+      <view class="participants-list">
+        <view class="avatar-stack">
+          <block wx:for="{{participants}}" wx:key="id">
+            <image 
+              src="{{item.avatar}}" 
+              mode="aspectFill" 
+              class="avatar-item"
+              style="margin-left: {{index > 0 ? -20 : 0}}rpx; z-index: {{participants.length - index}}"
+            />
+          </block>
+        </view>
+        <view wx:if="{{participants.length > 0}}" class="view-more" bindtap="onViewParticipantsTap">
+          <text>查看全部</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 活动说明 -->
+    <view class="desc-section">
+      <view class="section-title">活动说明</view>
+      <text class="description">{{activity.description}}</text>
+    </view>
+
+    <!-- 详情图片 -->
+    <view wx:if="{{activity.detailImages.length > 0}}" class="detail-section">
+      <view class="section-title">详情图片</view>
+      <view class="detail-images">
+        <image
+          wx:for="{{activity.detailImages}}"
+          wx:key="*this"
+          src="{{item}}"
+          mode="aspectFill"
+          class="detail-image-item"
+          bindtap="onPreviewImage"
+          data-url="{{item}}"
+        />
+      </view>
+    </view>
+
+    <!-- 引路图片 -->
+    <view wx:if="{{activity.guideImages.length > 0}}" class="guide-section">
+      <view class="section-title">引路图片</view>
+      <view class="guide-images">
+        <image
+          wx:for="{{activity.guideImages}}"
+          wx:key="*this"
+          src="{{item}}"
+          mode="aspectFill"
+          class="guide-image-item"
+        />
+      </view>
+    </view>
+
+    <!-- 底部占位 -->
+    <view class="bottom-space"></view>
+
+    <!-- 底部操作栏 -->
+    <view class="bottom-bar">
+      <l-button
+        block
+        size="lg"
+        variant="{{hasJoined ? 'secondary' : 'primary'}}"
+        bind:click="onJoinTap"
+      >
+        {{hasJoined ? '请假' : '报名参加'}}
+      </l-button>
+    </view>
+  </block>
+</view>

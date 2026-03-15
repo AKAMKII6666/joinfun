@@ -1,4 +1,8 @@
 {
   "usingComponents": {
+    "l-custom-tabbar": "/components/custom-tabbar/tabbar",
+    "l-activity-card": "/components/business/activity-card/activity-card",
+    "l-empty-state": "/components/business/empty-state/empty-state",
+    "l-publish-float-btn": "/components/business/publish-float-btn/publish-float-btn"
   }
 }
